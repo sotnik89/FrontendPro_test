@@ -7,8 +7,8 @@
 let divideNumber = 10369;
 
 let d1 = Math.trunc(divideNumber / 10000);
-let d2 = Math.trunc(divideNumber / 10370);
-let d3 = Math.floor(divideNumber / 100) % 100;
+let d2 = Math.trunc(divideNumber / 1000) % 10;
+let d3 = Math.floor(divideNumber / 100) % 10;
 let d4 = Math.floor(divideNumber / 10) % 10;
 let d5 = divideNumber % 10;
 
