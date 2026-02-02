@@ -19,7 +19,7 @@ if (!threeNumber || isNaN(threeNumber)) {
 
     if (d1 === d2 === d3) {
         console.log("Same")
-    } else {"Not same"}
+    }
     if (d1 === d2 || d1 === d3 || d2 === d3){
         console.log("Some numbers same");
     } else {
