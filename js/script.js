@@ -1,5 +1,6 @@
-let numOrStr = prompt("input number or string")
-// console.log(numOrStr);
+// Переписати код нижче з використанням конструкції switch…case
+// let numOrStr = prompt("input number or string")
+//     console.log(numOrStr);
 
 // if (numOrStr === null){
 //     console.log("ви скасували")
@@ -11,11 +12,14 @@ let numOrStr = prompt("input number or string")
 //     console.log("OK!");
 // }
 
-switch (numOrStr) {
-    case null:
+let numOrStr = prompt("input number or string");
+console.log(numOrStr);
+
+switch (true) {
+    case numOrStr === null:
         console.log("ви скасували")
         break;
-    case '':
+    case numOrStr.trim() === "":
         console.log("Empty string")
         break;
     case isNaN(+numOrStr):
