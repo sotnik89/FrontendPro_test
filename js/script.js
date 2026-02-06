@@ -22,9 +22,10 @@ for (let i = 2; i < n; i++) {
     if (n % i === 0) {
         console.log("This is not prime number");
         counter++
-        break
+        break;
     }
     if (counter === 2){
         console.log("This is prime number");
+        break;
     }
 }
