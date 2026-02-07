@@ -4,28 +4,32 @@
 
 
 // let n = +prompt("Enter number");
-// let counter = 2;
-// for (2; n < 5; n++) {
-//     if (5 % n === 0) {
-//         console.log("this is prime number");
+//
+// for (let i = 2; i < n; i++) {
+//     let counter = 2;
+//     if (n % i === 0 || n % 3 === 0) {
+//         console.log("This is not prime number");
 //         counter++
-//         break
-//     } else {
-//         console.log("this is not prime number");
+//         break;
+//     }
+//     if (counter === 2){
+//         console.log("This is prime number");
+//         break;
 //     }
 // }
 
 let n = +prompt("Enter number");
-
-for (let i = 2; i < n; i++) {
-    let counter = 2;
+let isPrime = true;
+for (let i = 2; i * i <= n; i++) {
     if (n % i === 0) {
-        console.log("This is not prime number");
-        counter++
-        break;
-    }
-    if (counter === 2){
-        console.log("This is prime number");
+        isPrime = false;
         break;
     }
 }
+
+if(isPrime) {
+    console.log("Просте");
+} else {
+    console.log("Не просте");
+}
+
