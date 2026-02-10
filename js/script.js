@@ -32,7 +32,8 @@ while (true){
             phone: parts[1],
             email: parts[2]
         }
-        book.contacts.push(newRecord)
+        book.contacts.push(newRecord);
+        console.log("Result contacts:", book);
     }
     if (input === "search") {
         // console.log("Enter name:", name)
@@ -44,10 +45,9 @@ while (true){
                 notFound = false;
                 break;
             }
-        }
-        if (notFound) {
-            console.log("Not found");
+            if (notFound) {
+                console.log("Not found");
+            }
         }
     }
 }
-console.log("Result contacts:", book)
