@@ -12,30 +12,10 @@ console.log(result);
 
 /////
 /* first */
-// function removeFromArray(str, charToDelete){
-//     let newStr = "";
-//     for(let i = 0; i <str.length; i++){
-//         if(str[i] !== charToDelete){
-//             newStr += str[i];
-//         }
-//     }
-//     return newStr
-//
+// function removeChars(str, charsToRemove) {
+//     return str.split('').filter(char => !charsToRemove.includes(char)).join('');
 // }
-// console.log(removeFromArray("hello", "l"))
-
-/* Second */
-// function removeFromArray(str, arrayToDelete) {
-//     let newStr = "";
-//     for (let j = 0; j < arrayToDelete.length; j++) {
-//         for (let i = 0; i < str.length; i++) {
-//             if (str[i] !== arrayToDelete[j]) {
-//                 newStr += str[i];
-//             }
-//         }
-//     }
-//     return newStr
-// }
-// console.log(
-//     removeFromArray("hello", ["h", "e"])
-// )
+// const firstString = prompt();
+// // const symbolsToRemove = ['l', 'd'];
+// const result = removeChars(firstString, ['l', 'd']);
+// console.log(result);
