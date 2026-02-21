@@ -4,7 +4,7 @@
 function mainNumber() {
     for (let i = 0; i < 10; i++) {
         let x = prompt("Enter number more than 100:");
-        if (x === null || x > 100 || x === "") {
+        if (x === null || x > 100) {
             break
         }
         console.log(x)
