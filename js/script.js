@@ -28,17 +28,14 @@ let ladder = {
     up: function () {
         this.step += 1; // this.step++;
         return this
-        // підніматиме вас на одну сходинку
     },
     down: function () {
         this.step -= 1; // this.step--;
         return this
-        // опускатиме вас на одну сходинку
     },
     showStep: function () {
         console.log("Current status:", this.step)
             return this
-        // показує поточну сходинку
     }
 };
 ladder.up().up().down().showStep();
