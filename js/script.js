@@ -47,4 +47,15 @@ clearButton.addEventListener("click", function (){
     );
     loginForm.reset()
 })
-
+// FormData
+const formWithData = document.querySelector("#formWithData");
+const result = document.querySelector("#result");
+formWithData.addEventListener("submit", function (e){
+    e.preventDefault()
+    const formData = new FormData(formWithData)
+// for(let item of formData.entries()){
+//     console.log(item);
+// }
+    console.log(formData.get("username"));
+    this.reset()
+})

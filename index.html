@@ -32,12 +32,11 @@
 </div>
 
 <form id="loginForm" novalidate>  <!--// action="http://www.facebook.com/email-submit" method="post"-->
-     <div class="row">
-         <label>Email:
-         <input id="emailInput" type="email" name="email" required>
-         </label>
-     </div>
-
+    <div class="row">
+        <label>Email:
+            <input id="emailInput" type="email" name="email" required>
+        </label>
+    </div>
     <div class="row">
         <label>Password:
             <input id="passInput" type="password" name="password" required minlength="6" maxlength="20">
@@ -49,5 +48,30 @@
     </div>
 </form>
 
+
+<form id="formWithData">
+    <div class="row">
+        <label>User Name:
+            <input type="text" name="username" placeholder="Username" required>
+        </label>
+    </div>
+    <div class="row">
+        <label>Email:
+            <input type="email" name="email" placeholder="Email" required>
+        </label>
+    </div>
+    <div class="row">
+        <label>
+            HTML
+            <input name="skills" type="checkbox" value="html">
+        </label>
+        <label>
+            Javascript
+            <input name="skills" type="checkbox" value="js">
+        </label>
+    </div>
+    <button type="submit">Send</button>
+    <div id="result"></div>
+</form>
 </body>
 </html>
