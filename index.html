@@ -31,5 +31,23 @@
     </label>
 </div>
 
+<form id="loginForm" novalidate>  <!--// action="http://www.facebook.com/email-submit" method="post"-->
+     <div class="row">
+         <label>Email:
+         <input id="emailInput" type="email" name="email" required>
+         </label>
+     </div>
+
+    <div class="row">
+        <label>Password:
+            <input id="passInput" type="password" name="password" required minlength="6" maxlength="20">
+        </label>
+    </div>
+    <div class="row">
+        <button type="submit" id="submitButton">Login</button>
+        <button type="button" id="clearButton">Clear</button>
+    </div>
+</form>
+
 </body>
 </html>
