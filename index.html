@@ -7,9 +7,21 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>FrontendPro_test</title>
   <link rel="stylesheet" href="css/styles.css">
+    <script src="js/script.js"defer></script>
 </head>
 <body>
+<h1>We would like to help you</h1>
+<form id="formLogin">
+    <label> Name
+        <input id="nameInput" type="text" placeholder="Name" required>
+    </label>
+    <textarea id="messageText" placeholder="Message" minlength="5">
+    </textarea>
+    <h2>How to answer to you</h2>
+<input id="phone" type="tel" placeholder="Phone number +380">
+    <input id="email" type="email" placeholder="Email" required pattern="@/.">
+    <button id="btn">Send message</button>
+</form>
 
-<script src="js/script.js"></script>
 </body>
 </html>
