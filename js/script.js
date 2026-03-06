@@ -16,32 +16,27 @@ const email = document.querySelector("#email")
 const phone = document.querySelector("#phone")
 const errorPhone = document.querySelector("#errorPhone");
 const errorEmail = document.querySelector("#errorEmail")
+const btn = document.querySelector("#btn")
 
-
+btn.addEventListener("click", function (){
+    console.log(
+        formLogin.checkValidity(),
+        formLogin.reportValidity()
+    );
+    formLogin.reset();
+})
 formLogin.addEventListener("submit", function (e){
     e.preventDefault()
-    const formData = new formData(formLogin)
-    const email = formData.get("email")
+    const formData = new formData(formLogin);
     const phone = formData.get("phone")
+    const email = formData.get("email");
     if(!email || !email.trim() || !email.includes("@")){
         errorEmail.style.display = "inline"
     }
     if(!phone || !phone.trim() || !phone.includes("+380")){
         errorPhone.style.display = "inline"
     }
-    formLogin.reset();
+    this.reset();
 })
 
-
-// const numbers = [2, 4, 5, 3, 7, 9]
-// function findMin (numbers){
-//     let min = numbers[0];
-//     for(let i = 1; numbers.length > i; i++){
-//         if(numbers[i] < min){
-//             min = numbers[i]
-//         }
-//     }
-//     return min
-// }
-// console.log(findMin(numbers));
 
