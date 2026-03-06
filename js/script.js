@@ -29,6 +29,7 @@ formLogin.addEventListener("submit", function (e){
     if(!phone || !phone.trim() || !phone.includes("+380")){
         errorPhone.style.display = "inline"
     }
+    formLogin.reset();
 })
 
 

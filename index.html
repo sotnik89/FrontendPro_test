@@ -14,20 +14,20 @@
 <form id="formLogin" novalidate>
     <div class="field">
         <label> Name
-            <input id="nameInput" type="text" placeholder="Name" required>
+            <input id="nameInput" name="name" type="text" placeholder="Name" required>
         </label>
     </div>
     <div class="field">
-    <textarea id="messageText" placeholder="Message" minlength="5">
+    <textarea id="messageText" name="message" placeholder="Message"  minlength="5">
     </textarea>
     </div>
     <h2>How to answer to you</h2>
     <div class="field">
-        <input id="phone" type="tel" placeholder="Phone number +380">
+        <input id="phone" name="phone" type="tel" placeholder="Phone number +380">
         <span id="errorPhone" class="error">Please enter correct phone number</span>
     </div>
     <div class="field">
-        <input id="email" type="email" placeholder="Email" required>
+        <input id="email" type="email" name="email" placeholder="Email" required>
         <span id="errorEmail" class="error">Please enter correct email</span>
     </div>
     <button id="btn">Send message</button>
