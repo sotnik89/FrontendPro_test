@@ -10,64 +10,46 @@
 //
 //     Під час помилки показувати її під полем.
 
+const formLogin = document.querySelector("#formLogin");
+const result = document.querySelector("#result")
 const errorEmail = document.querySelector("#errorEmail")
+const errorPhone = document.querySelector("#errorPhone");
+const errorName = document.querySelector("#errorName")
 
+formLogin.addEventListener("submit", function(e) {
+    e.preventDefault();
 
-const emailAddress = "";
-const emailRegex = /.+@.+\..+/;
-if (emailRegex.test(emailAddress)) {
-        console.log("Email адреса правильна.");
-} else {
-    errorEmail.style.display = "inline"
-    console.log("Неправильний формат email адреси.");
-}
-console.log(emailAddress)
+    const formData = new FormData(this);
 
-const phoneNumber = phone.value.trim().match(/^\+380\d{9}$/);
-if(emailRegex.test(phoneNumber)){
-    console.log("Phone is correct");
-} else {
-    console.log("Not corrected phone number");
-}
-console.log(phoneNumber)
+    const name = formData.get("name");
+    const message = formData.get("message");
+    const phone = String (formData.get("phone"));
+    const email = String (formData.get("email"));
+    const EMAIL_REGEX = /.+@.+\..+/;
+    const PHONE_REGEX = /^\+380\d{9}$/;
 
-
-
-
-
-
-
-
-// email.addEventListener("input", function (e){
-//     const email = e.target.value;
-//     if(email.includes("@")){
-//         btn.innerText = ""
-//     } else {
-//         btn.innerText = "Email should have '@'"
-//     }
-// console.log(btn)
-// })
-
-// btn.addEventListener("click", function (){
-//     console.log(
-//         formLogin.checkValidity(),
-//         formLogin.reportValidity()
-//     );
-//     formLogin.reset();
-// })
-// formLogin.addEventListener("submit", function (e){
-//     e.preventDefault()
-//     const formData = new formData(formLogin);
-//     const phone = formData.get("phone")
-//     const email = formData.get("email");
-//     if(!email || !email.trim() || !email.includes("@")){
-//         errorEmail.style.display = "inline"
-//     }
-//     if(!phone || !phone.trim() || !phone.includes("+380")){
-//         errorPhone.style.display = "inline"
-//     }
-//     this.reset();
-// })
-
-
+    if(!PHONE_REGEX.test(phone) && !EMAIL_REGEX.test(email)) {
+        errorPhone.classList.add("active")
+        return;
+    }
+    if(!EMAIL_REGEX.test(email)) {
+        errorEmail.classList.add("active")
+        return;
+    }
+    if(name.length === 0) {
+        errorName.classList.add("active")
+        return;
+    }
+    if(message.length < 5) {
+        console.log("Message повинно бути не менше 5 символів");
+        return;
+    }
+    result.innerHTML = `
+        <p><strong>name:</strong> ${name}</p>
+        <p><strong>message:</strong> ${message}</p>
+        <p><strong>phone:</strong> ${phone}</p>
+        <p><strong>Email:</strong> ${email}</p>
+    `;
+    this.reset();
+});
 
