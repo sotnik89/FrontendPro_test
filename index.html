@@ -7,9 +7,23 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>FrontendPro_test</title>
   <link rel="stylesheet" href="css/styles.css">
+    <script src="js/script.js" defer></script>
 </head>
 <body>
+<div class="slider-box">
+    <div class="slider" id="slider">
+        <!-- Сюди можна додавати будь-яку кількість зображень -->
+        <img src="images/1_.jpg" class="slide active" alt="imageFirst">
+        <img src="images/2_.jpg" class="slide" alt="imageSecond">
+        <img src="images/3_.jpg" class="slide" alt="imageThird">
+        <img src="images/4_.jpg" class="slide active" alt="imageForth">
+    </div>
 
-<script src="js/script.js"></script>
+    <button id="prevButton" class="prev button">Prev</button>
+    <button id="nextButton" class="next button">Next</button>
+
+    <div id="dotsBox" class="dots"></div>
+</div>
+
 </body>
 </html>
