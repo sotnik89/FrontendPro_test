@@ -11,7 +11,7 @@
 </head>
 <body>
 <h1>We would like to help you</h1>
-<form id="formLogin">
+<form id="formLogin" novalidate>
     <div>
         <label> Name
             <input id="nameInput" name="name" type="text" placeholder="Name">
@@ -19,8 +19,9 @@
         <span id="errorName" class="error">Please enter correct name</span>
     </div>
     <div class="field">
-    <textarea id="messageText" name="message" placeholder="Message"  minlength="5" required>
+    <textarea id="messageText" name="message" placeholder="Message">
     </textarea>
+        <span id="errorMessage" class="error">Message повинно бути не менше 5 символів"</span>
     </div>
     <h2>How to answer to you</h2>
     <div>
@@ -28,7 +29,7 @@
         <span id="errorPhone" class="error">Please enter correct phone number</span>
     </div>
     <div class="field">
-        <input id="email" type="email" name="email" placeholder="Email" required>
+        <input id="email" type="email" name="email" placeholder="Email">
         <span id="errorEmail" class="error">Please enter correct email</span>
     </div>
     <button id="btn">Send message</button>

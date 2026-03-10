@@ -1,13 +1,10 @@
 // Доробити валідацію для надсилання повідомлення з використанням регулярних виразів:
-//
 //     Поля:
-//
 //         Name - обов'язкове текстове поле
 // Message - текстове поле не менше 5 символів
 // Phone number - обов'язкове поле типу phone. З початком на +380
 // Email - email обов'язково повинен мати @ та крапку
 // Після відправки, в консоль відображаємо дані, які ввів користувач.
-//
 //     Під час помилки показувати її під полем.
 
 const formLogin = document.querySelector("#formLogin");
@@ -15,6 +12,7 @@ const result = document.querySelector("#result")
 const errorEmail = document.querySelector("#errorEmail")
 const errorPhone = document.querySelector("#errorPhone");
 const errorName = document.querySelector("#errorName")
+const errorMessage = document.querySelector("#errorMessage")
 
 formLogin.addEventListener("submit", function(e) {
     e.preventDefault();
@@ -41,7 +39,8 @@ formLogin.addEventListener("submit", function(e) {
         return;
     }
     if(message.length < 5) {
-        console.log("Message повинно бути не менше 5 символів");
+        errorMessage.classList.add("active")
+        // console.log("Message повинно бути не менше 5 символів");
         return;
     }
     result.innerHTML = `
