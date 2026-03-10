@@ -23,12 +23,12 @@ formLogin.addEventListener("submit", function(e) {
 
     const name = formData.get("name");
     const message = formData.get("message");
-    const phone = String (formData.get("phone"));
-    const email = String (formData.get("email"));
+    const phone = formData.get("phone");
+    const email = formData.get("email");
     const EMAIL_REGEX = /.+@.+\..+/;
     const PHONE_REGEX = /^\+380\d{9}$/;
 
-    if(!PHONE_REGEX.test(phone) && !EMAIL_REGEX.test(email)) {
+    if(!PHONE_REGEX.test(phone)) {
         errorPhone.classList.add("active")
         return;
     }
