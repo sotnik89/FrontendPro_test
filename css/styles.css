@@ -27,6 +27,11 @@
 
 .product-list {
     flex: 2;
+    border-right: 3px solid black;
+}
+.product-card{
+    border: 1px solid #3e1245;
+    border-radius: 12px;
 }
 
 .cart {

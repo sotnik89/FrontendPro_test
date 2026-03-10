@@ -1,4 +1,4 @@
-//Modal window
+// * Modal window * //
 const openModalBtn = document.querySelector("#open-modal-btn");
 const modal = document.querySelector("#modal");
 const closeModalBtn = document.querySelector("#close-modal-btn");
@@ -15,7 +15,8 @@ openModalBtn.addEventListener("click", () => {
 modal.addEventListener("click", closeModal)
 closeModalBtn.addEventListener("click", closeModal);
 
-//Cart + Product
+
+// * Cart + Product * //
 const products = [
     {id: 1, name:"Laptop", price: 2500},
     {id: 2, name:"Mouse", price: 700},
@@ -36,10 +37,10 @@ function renderProducts() {
     let productsHtml = "";
     products.forEach(product => {
         productsHtml += `
-        <div class="product-cart">
+        <div class="product-card">
         <h3>${product.name}</h3>
-         <h3>${product.price}</h3>
-         <button>
+         <h3>${product.price} eur</h3>
+         <button data-id="${product.id}">
          Add to card
         </button>    
         </div>
@@ -47,13 +48,63 @@ function renderProducts() {
     })
     productList.innerHTML = productsHtml;
 }
+function renderCart() {
+    if(cart.length > 0){
+    let cartHtml = "";
+    cart.forEach(cartItem => {
+        cartHtml += `
+        <div class="product-card">
+        <h3>${cartItem.name}</h3>
+        <h3>${cartItem.price} eur</h3>
+         <span>x${cartItem.amount}</span>
+        <button data-id="${cartItem.id}">
+         Remove
+        </button>    
+        </div>
+        `;
+    })
+        cartContainer.innerHTML = cartHtml;
+    }
+}
+productList.addEventListener("click", (e) =>{
+    const productId = +e.target.dataset.id
+    const product = products.find(product => product.id === productId)
+    if(product) {
+        const productInCart = cart.findIndex(product => product.id === productId)
+        if (productInCart !== -1){
+            cart[productInCart].amount += 1;
+        } else{
+            cart.push({...product, amount: 1});
+        }
+
+    }
+    renderCart()
+})
 renderProducts()
 
+//* spread / rest operator * //
+const numbers = [1, 2, 3, 4];
+// console.log(numbers)
+const numbersComplex = [...numbers, 45, 25, true, "dsa"]
 
 
+const user = {
+    name: "Laptop",
+    id: 23
+}
+const userAddress = {
+    street: "Filatova",
+    city: "Odesa"
+}
+const userFullData = {...user, ...userAddress}
 
+console.log(numbersComplex, userFullData)
 
-
+// * rest operator * // збирає
+function  summ(...numbers){
+    console.log(numbers)
+}
+summ(2, 42, 3)
 
 // code style
 // use strict
