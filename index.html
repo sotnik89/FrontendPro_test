@@ -7,9 +7,27 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>FrontendPro_test</title>
   <link rel="stylesheet" href="css/styles.css">
+    <script src="js/script.js" defer></script>
 </head>
 <body>
-
-<script src="js/script.js"></script>
+<div class="container">
+    <h1>ToDoList</h1>
+    <form class="form js--form">
+        <input type="text" name="value" required class="form__input js--form__input">
+        <button class="form__btn">Додати</button>
+    </form>
+    <ul class="js--todos-wrapper">
+        <li class="todo-item">
+            <input type="checkbox">
+            <span class="todo-item__description">Text</span>
+            <button class="todo-item__delete">Видалити</button>
+        </li>
+        <li class="todo-item todo-item--checked">
+            <input type="checkbox">
+            <span class="todo-item__description">Text</span>
+            <button class="todo-item__delete">Видалити</button>
+        </li>
+    </ul>
+</div>
 </body>
 </html>
