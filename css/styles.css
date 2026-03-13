@@ -1,0 +1,21 @@
+table {
+    font-family: Arial;
+    border-collapse: collapse;
+    margin: 20px;
+}
+td, th {
+    border: 1px solid #355;
+    padding: 10px;
+    text-align: center;
+    width: 30px;
+    background-color: #b55151;
+
+}
+tr:first-child td, tr td:first-child {
+    background-color: #32a31a;
+    font-weight: bold;
+}
+.diagonal {
+    background-color: orange;
+    font-weight: bold;
+}
