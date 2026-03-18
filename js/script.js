@@ -5,7 +5,7 @@ function User(name, balance){
         this.balance = this.balance += amount
     }
     this.showBalance = function (){
-        console.log(`${name} current balance: ${this.balance} USD`)
+        console.log(`${this.name} current balance: ${this.balance} USD`)
     }
     this.withDraw = function (amount){
         if (amount > this.balance){
@@ -68,6 +68,35 @@ car2.accelerate(33);
 car1.showInfo();
 car2.showInfo();
 
+// * hw ls17_1 *//
+class BankAccount {
+    constructor(balance) {
+        this.balance = balance;
+    }
+    getBalance() {
+        console.log(`Current balance: ${this.balance}`)
+    }
+    deposit (amount)
+    {
+        this.balance += amount
+    }
+    withdraw (amount)
+    {
+        if (amount > this.balance) {
+            console.log("Not enough money")
+            return;
+        }
+        this.balance -= amount;
+    }
+}
+
+const account1 = new BankAccount(1000);
+
+account1.getBalance();
+account1.deposit(500);
+account1.getBalance();
+account1.withdraw(200);
+account1.getBalance();
 
 
 
@@ -103,7 +132,7 @@ car2.showInfo();
 //         this.balance = this.balance += amount;
 //     }
 //     this.showBalance = function (){
-//         console.log(`${name} current balance: ${this.balance} USD`)
+//         console.log(`${this.name} current balance: ${this.balance} USD`)
 //     }
 //     this.withdraw = function (amount){
 //         if(amount > this.balance){
