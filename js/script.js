@@ -68,6 +68,9 @@ car2.accelerate(33);
 car1.showInfo();
 car2.showInfo();
 
+
+// * ls16_1 * //
+
 // * hw ls17_1 *//
 class BankAccount {
     constructor(balance) {
