@@ -1,0 +1,46 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f5f5;
+}
+.weather-card {
+    background: #6dbaf3;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    text-align: center;
+    width: 500px;
+}
+.weather-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0;
+}
+#temp {
+    font-size: 16px;
+    margin: 0;
+}
+#desc {
+    text-transform: capitalize;
+    margin-bottom: 20px;
+}
+#refresh-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: transform 0.3s ease-in-out;
+}
+#refresh-btn:hover {
+    background-color: #21f725;
+}
+#refresh-btn:active {
+    transform: scale(1.2);
+}
