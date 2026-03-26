@@ -1,105 +1,150 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// function User(name, balance){
-//     this.name = name;
-//     this.balance = balance;
-//     this.debit = function (amount){
-//         this.balance = this.balance += amount;
-//     }
-//     this.showBalance = function (){
-//         console.log(`${name} current balance: ${this.balance} USD`)
-//     }
-//     this.withdraw = function (amount){
-//         if(amount > this.balance){
-//             console.log("Not enough")
-//             return;
+// function getUser (callback){
+//     setTimeout(() =>{
+//         const user = {id:1, name:"Alex"};
+//         console.log("1. User received!")
+//         callback(user)
+//     }, 1000)
+// }
+//
+// function getPosts (userId, callback){
+//     setTimeout(() =>{
+//         const posts = [
+//             {id: 101, title: "First Post"},
+//             {id: 102, title: "Second Post"}
+//         ];
+//         console.log("2. Posts received!");
+//         callback(posts);
+//     }, 1000);
+// }
+//
+// function getComments (postId, callback){
+//     setTimeout(() =>{
+//         const comments = [
+//             {id: 1001, title: "First Comment"},
+//             {id: 1002, title: "Second Comment"}
+//         ];
+//         console.log("3. Comments received!");
+//         callback(comments);
+//     }, 1000);
+// }
+// getUser((user) => {
+//     console.log("User:", user);
+//     getPosts(user.id, (posts) => {
+//         console.log("Posts:", posts);
+//         getComments(posts[0].id, (comments) =>{
+//             console.log("Displaying comments:", comments);
+//         });
+//     });
+// });
+// // Promise
+// const myPromise = new Promise((resolve, reject) => {
+//     console.log("I'm from Promise");
+//     setTimeout(() => {
+//         const success = true;
+//         if (success) {
+// resolve ("Data received");
+//         } else {
+//             reject("Error");
 //         }
-//         this.balance -= amount
-//     }
-// }
+//     }, 2000)
+// });
 //
-// function Admin(name, balance, role) {
-//     User.call(this, name, balance);
-//     this.role = role;
-//     this.showRole = function (){
-//         console.log("You are:", this.role)
-//     }
-//     this.showBalance = function (){
-//         console.log("Admin balance:", this.balance, "USD");
-//     }
-// }
+// console.log(myPromise);
 //
-// const user1 = new User ("Alex", 100);
-// const user2 = new User ("Bob", 45);
-// const userAdmin = new Admin ("Alice", 99, "superadmin")
-//
-// user1.showBalance();
-// user2.showBalance();
-// user1.withdraw(90)
-// user1.showBalance()
-// userAdmin.showBalance()
-//
-// user1.debit(20);
-// user2.debit(60);
-// userAdmin.debit(33);
-//
-// user1.showBalance();
-// user2.showBalance();
-// userAdmin.showBalance()
-//
-// function Car(brand, speed) {
-//     this.brand = brand;
-//     this.speed = speed;
-//
-//     // this.showInfo = function (){
-//     //     console.log("Brand:", this.brand, " | ", this.speed, "miles/hour" )
-//     // }
-// }
-//
-// Car.prototype.showInfo = function () {
-//     console.log("Brand:", this.brand, " | ", this.speed, "miles/hour")
-// }
-// Car.prototype.accelerate = function (value) {
-//     this.speed += value;
-// }
-//
-// const car1 = new Car("BMW", 70);
-// const car2 = new Car("VW", 100)
-//
-// car1.showInfo();
-// car2.showInfo();
-// car1.accelerate(10)
-// car2.accelerate(20)
-// car1.showInfo();
-// car2.showInfo();
-// console.log(car1.showInfo === car2.showInfo)
+// myPromise
+//     .then((result) => {
+//         console.log("Result:", result);
+//     })
+//     .catch((err) => {
+//             console.log("Error:", err);
+//     })
+//     .finally(() => {
+//         console.log("Finished...");
+//     });
+
+function getUserP() {
+    //..
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            const user = {id: 1, name: "Alex"};
+            const success = true
+
+            if (success) {
+                console.log("1. User received!");
+                resolve(user)
+            } else {
+                reject("Not found");
+            }
+        }, 1000)
+    })
+}
+
+
+// const userResult = getUserP();
+// console.log("UserResult:", userResult)
+// userResult.then((data) => console.log(data));
+
+function getPostsP(userId) {
+    //...
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            const posts = [
+                {id: 101, title: "First Post"},
+                {id: 102, title: "Second Post"}
+            ];
+            const success = true
+
+            if (success) {
+                console.log("2. Posts received!");
+                resolve(posts)
+            } else {
+                reject("Posts not received");
+            }
+        }, 1000);
+    })
+}
+
+function getCommentsP(postId) {
+    //...
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            const comments = [
+                {id: 1001, title: "First Comment"},
+                {id: 1002, title: "Second Comment"}
+            ];
+            const success = true
+
+            if (success) {
+                console.log("3. Comments received!");
+                resolve(comments)
+            } else {
+                reject("Comments not received");
+            }
+        }, 1000);
+    });
+}
+
+getUser((user) => {
+    console.log("User:", user);
+    getPosts(user.id, (posts) => {
+        console.log("Posts:", posts);
+        getComments(posts[0].id, (comments) =>{
+            console.log("Displaying comments:", comments);
+        });
+    });
+});
+getUserP()
+    .then(user => {
+        console.log("User:", user);
+        return getPostsP(user.id);
+    })
+    .then(posts => {
+        console.log("Posts:", posts);
+        return getCommentsP(posts[0].id);
+    })
+    .then(comments => {
+        console.log("Comments:", comments);
+    })
+    .catch(err => {
+        console.log("Error:", err);
+    })
