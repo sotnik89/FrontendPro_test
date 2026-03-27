@@ -1,0 +1,28 @@
+.container{
+    margin: auto;
+    display: flex;
+    flex-direction: column; /* Блоки будуть один під одним */
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+    height: 100vh;
+}
+
+.displayTimer, .timer_stopped{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    text-align: center;
+    font-size: 24px;
+    line-height: 1.5;
+    border: 0 solid #ccc;
+    border-radius: 40px;
+}
+.displayTimer{
+    background: linear-gradient(to bottom, #3498db 50%, #2ff605 50%);
+}
+.timer_stopped{
+    background-color: coral;
+
+}
