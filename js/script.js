@@ -1,6 +1,73 @@
+// Оновлене домашнє завдання:
+//
+//     Почати створювати застосунок для роботи з todo.
+//
+//     У застосунку повинно бути:
+//
+//     – кнопка для завантаження списку todo (робоча кнопка);
+//
+// – відображення списку todo на сторінці (бажано лімітувати кількість до 10ти);
+//
+// – кнопка для створення нового todo (можна зімітувати або зробити форму);
+//
+// – кнопка для видалення todo;
+//
+// – відображення статусу: завантаження, успіх, помилка.
+//
+//     Дані взяти з https://jsonplaceholder.typicode.com/
 
+const loadBtn = document.querySelector('#loadBtn');
+const addBtn = document.querySelector('#addBtn');
+const todoList = document.querySelector('#todoList');
+const status = document.querySelector('#status');
 
+let todos = [];
 
+const setStatus = (msg, color) => {
+    status.textContent = msg;
+    status.style.color = color;
+};
+
+const render = () => {
+    todoList.innerHTML = todos.slice(0, 10).map(todo => `
+    <li>
+      <span>${todo.title}</span>
+      <button class="delete-btn" id="${todo.id}">Delete</button>
+    </li>
+  `).join('');
+};
+
+loadBtn.addEventListener('click', () => {
+    setStatus('⏳ Downloading...', 'orange');
+
+    fetch('https://typicode.com')
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            }
+                return Promise.reject();
+        })
+        .then(data => {
+            todos = data;
+            render();
+            setStatus('✅ Success', 'green');
+        })
+        .catch(() => setStatus('Mistake', 'red'));
+});
+
+addBtn.addEventListener('click', () => {
+    const newTodo = { id: Date.now(), title: 'New task' };
+    todos = [newTodo, ...todos];
+    render();
+});
+
+todoList.addEventListener('click', ({ target }) => {
+    if (target.classList.contains('delete-btn')) {
+        todos = todos.filter(t => t.id != target.id);
+        render();
+        setStatus('Видалено', 'blue');
+    }
+});
 
 
 

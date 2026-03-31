@@ -1,0 +1,40 @@
+body {
+    font-family: sans-serif;
+    padding: 20px;
+    line-height: 1.6;
+}
+.controls {
+    margin-bottom: 20px;
+}
+#status {
+    font-weight: bold;
+    margin: 10px 0;
+}
+.loading {
+    color: orange;
+}
+.success {
+    color: #13b513;
+}
+.error {
+    color: #e14040;
+}
+ul {
+    list-style: none;
+    padding: 0;
+}
+li {
+    background: #f4f4f4;
+    margin: 5px 0;
+    padding: 10px;
+    /*display: flex;*/
+    /*justify-content: space-between;*/
+    border-radius: 4px;
+}
+.delete-btn { color: white;
+    background: red;
+    border: none;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 3px;
+}
