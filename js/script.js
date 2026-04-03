@@ -20,7 +20,7 @@ todoList.addEventListener('click', deleteBtnFunc);
 async function setStatusFunc() {
     try {
         setStatus('loading...', 'yellow')
-        const response = await fetch(`${BASE_URL}/todos?_limit=10`);
+        const response = await fetch(`${BASE_URL}/todos?_limit=15`);
         if (!response.ok) {
             throw new Error('Fetch failed')
         }
@@ -34,7 +34,7 @@ async function setStatusFunc() {
 }
 
 const render = () => {
-    todoList.innerHTML = todos.slice(0, 10).map((todo, index) => `
+    todoList.innerHTML = todos.slice(0, 15).map((todo, index) => `
     <li>
       <span>${index + 1}.${todo.title}</span>
       <button class="delete-btn" data-id="${todo.id}" data-index="${index + 1}">Delete</button>
