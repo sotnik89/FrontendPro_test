@@ -43,7 +43,7 @@ const render = () => {
 };
 
 function newTodoFunc (){
-    const newTodo = {title: 'New task'};
+    const newTodo = {id: Date.now(), title: 'New task'};
     todos = [newTodo, ...todos];
     render();
     setStatus('Created new task', 'green');
