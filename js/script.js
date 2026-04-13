@@ -1,3 +1,17 @@
+//080426
+
+
+
+
+
+
+
+
+
+
+
+
+
 // const numbers = [1, 2, 2, 3, 4, 4, 5];
 // const unique = [];
 //
@@ -201,3 +215,27 @@ console.log(car);
 const usersA = [{id: 1, active: true}, {id: 2, active: false}];
 const activeUsers = usersA.filter(u => u.active);
 console.log(activeUsers);
+
+////////////////// *** CART *** //// ////
+const cart = [
+    { name: 'Laptop', price: 20000, count: 1, sale: false },
+    { name: 'Mouse', price: 50, count: 2, sale: false },
+    { name: 'Keyboard', price: 500, count: 1, sale: true },
+    { name: 'USB-hub', price: 80, count: 3, sale: true }
+];
+
+const newCart = cart
+    .filter(n => n.price > 100)
+    .map(n => {
+        let finalPrice;
+        if(n.sale){
+            finalPrice = n.price * 0.8
+        } else {
+            finalPrice = n.price
+        }
+        return finalPrice * n.count
+    })
+    .reduce((acc, curr) => acc + curr, 0)
+
+console.log(newCart)
+////////////////
