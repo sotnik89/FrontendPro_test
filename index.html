@@ -5,14 +5,27 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>FrontendPro_test</title>
-  <link rel="stylesheet" href="css/styles.css">
-    <script src="js/script.js" defer></script>
+    <title>Quote generator</title>
+  <link rel="stylesheet" href="css/index.css">
+    <script type="module" src="src/index.js" defer></script>
 </head>
 <body>
-<div class="el1"></div>
-<div class="el2"></div>
 
+<h1>Quote generator</h1>
+
+<div class="card">
+    <span id="quote-text">Loading...</span>
+    <div id="quote-author"></div>
+    <div id="quote-index"></div>
+</div>
+
+<div class="buttons">
+    <button id="btn-random">Random quote</button>
+    <button id="btn-prev">Previous quote</button>
+    <button id="btn-next">Next quote</button>
+</div>
+
+<div id="status-text"></div>
 
 </body>
 </html>

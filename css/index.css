@@ -1,0 +1,73 @@
+body {
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 50px;
+    background: #f9f9f9;
+}
+.card {
+    background: white;
+    border: 1px solid #ddd;
+    padding: 20px;
+    width: 600px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    border-radius: 20px;
+}
+#quote-text:hover, #quote-author:hover, #quote-index:hover {
+    background-color: #edea0c;
+    font-weight: 500;
+    padding: 5px;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+}
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+#quote-text {
+    font-size: 20px;
+    transition: all 0.3s ease;
+    display: inline;
+    cursor: pointer;
+}
+#quote-author {
+    font-style: italic;
+    margin-top: 20px;
+    color: #555;
+    transition: all 0.3s ease;
+    display: table;
+    cursor: pointer;
+}
+#quote-index {
+    color: #888;
+    margin-top: 15px;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    display: table;
+    cursor: pointer;
+}
+.buttons {
+    margin-top: 25px;
+    display: flex;
+    gap: 10px;
+}
+button {
+    width: 120px;
+    padding: 7px 0;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    background-color: #eee;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    transform: translateY(0) scale(1);
+    border-radius: 20px;
+}
+button:hover {
+    background-color: rgba(11, 184, 191, 0.89);
+    transform: translateY(-5px) scale(1.10);
+}
+#status-text {
+    margin-top: 25px;
+    font-weight: bold;
+    text-align: center;
+}
