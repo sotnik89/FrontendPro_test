@@ -1,0 +1,14 @@
+.idea/
+*.iml
+*.ipr
+*.iws
+
+.vscode/
+
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+.DS_Store
