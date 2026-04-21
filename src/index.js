@@ -9,6 +9,7 @@
 
 import { getRandomQuote, getNextQuote, getPreviousQuote, getCurrentIndex, getTotalCount } from './quotesService.js';
 import { renderQuote, renderQuoteIndex } from './ui.js';
+import './index.css'
 
 const btnRandom = document.querySelector('#btn-random');
 const btnPrev = document.querySelector('#btn-prev');
