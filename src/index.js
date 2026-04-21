@@ -1,8 +1,11 @@
 import { sayHello } from './helpers.js';
 import axios from 'axios';
-// import './index.css';
+import './index.css';
 
-console.log(sayHello('Студент'));
+const message = sayHello('Студент')
+console.log(message);
+
+console.log("hello");
 
 axios.get('https://jsonplaceholder.typicode.com/todos/1')
     .then(function (response) {

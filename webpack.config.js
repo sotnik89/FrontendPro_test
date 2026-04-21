@@ -1,33 +1,45 @@
 const path = require('path');
-
-module.exports = {
-    mode: 'development',
-    entry: './src/index.js',
-    output: {
-        filename: 'bundle.js',
-        path: path.resolve(__dirname, 'dist'),
-        clean: true,
+const HTMLWebpackPlugin = require('html-webpack-plugin');
+module.exports = (env, args) => {
+    const isProduction = args.mode === 'production'
+    return{
+        mode: isProduction ? 'production' : 'development',
+        entry: './src/index.js',
+        output: {
+            filename: isProduction ? 'js/[name].[contenthash].js' : 'js/[name].js',
+            path: path.resolve(__dirname, 'dist'),
+            clean: true,
     },
+        devtool: isProduction ? false : 'eval-source-map',
     module: {
         rules: [
             {
-                test: /\.css$/,
-                use: ['style-loader', 'css-loader'],
-            },
-            {
-                test: /\.m?js$/,
+                test: /\.js$/,
                 exclude: /node_modules/,
                 use: {
                     loader: 'babel-loader',
                     options: {
-                        presets: ['@babel/preset-env'],
-                        sourceType: 'module'
+                        presets:['@babel/preset-env'],
                     }
                 }
-            }
+            },           {
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader'],
+            },
         ]
     },
-    resolve: {
-        extensions: ['.js'],
+        plugins: [
+            new HTMLWebpackPlugin({
+                template: './public/index.html',
+            }),
+        ],
+        devServer: {
+            static: {
+            directory:path.resolve(__dirname, 'dist')
+            },
+            port: 3000,
+            open:true,
+            hot: true,
     },
+    }
 }
