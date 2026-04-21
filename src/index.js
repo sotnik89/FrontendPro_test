@@ -11,6 +11,7 @@ import { getRandomQuote, getNextQuote, getPreviousQuote, getCurrentIndex, getTot
 import { renderQuote, renderQuoteIndex } from './ui.js';
 import './index.css'
 
+
 const btnRandom = document.querySelector('#btn-random');
 const btnPrev = document.querySelector('#btn-prev');
 const btnNext = document.querySelector('#btn-next');
